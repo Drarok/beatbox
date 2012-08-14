@@ -3,8 +3,8 @@ Beatbox
 Beatbox is an iPad app for App.net. Much like the tortoise in the Aesop fable, I am slowly but steadily making it awesome.
 
 ##### Using the source ######
-1) Clone the source
-2) Run 'git submodule update'
+- Clone the source
+- Run 'git submodule update'
 
 Voila! You should be good to go.
 
