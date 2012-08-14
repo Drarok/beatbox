@@ -10,5 +10,5 @@
 #import "PullToRefreshTableViewController.h"
 
 @interface DetailTableViewController : PullToRefreshTableViewController<UISplitViewControllerDelegate>
-@property (assign, nonatomic) BOOL loadGlobalStream;
+@property (strong, nonatomic) NSString *urlToLoad;
 @end

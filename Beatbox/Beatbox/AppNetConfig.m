@@ -27,4 +27,14 @@
 	return [NSString stringWithFormat:@"https://alpha-api.app.net/stream/0/posts/stream/global?access_token=%@", accessToken];
 }
 
++(NSString *)userPostsUrl {
+	NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
+	return [NSString stringWithFormat:@"https://alpha-api.app.net/stream/0/users/me/posts?access_token=%@", accessToken];
+}
+
++(NSString *)mentionPostsUrl {
+	NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
+	return [NSString stringWithFormat:@"https://alpha-api.app.net/stream/0/users/me/mentions?access_token=%@", accessToken];
+}
+
 @end

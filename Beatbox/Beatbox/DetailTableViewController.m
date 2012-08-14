@@ -19,13 +19,13 @@
 
 @implementation DetailTableViewController
 
-@synthesize masterPopoverController = _masterPopoverController, posts, loadGlobalStream;
+@synthesize masterPopoverController = _masterPopoverController, posts, urlToLoad;
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
 		self.posts = [NSArray array];
-		self.loadGlobalStream = NO;
+		self.urlToLoad = [AppNetConfig postsUrl];
     }
     return self;
 }
@@ -34,7 +34,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
 		self.posts = [NSArray array];
-		self.loadGlobalStream = NO;
+		self.urlToLoad = [AppNetConfig postsUrl];
     }
     return self;
 }
@@ -112,12 +112,7 @@
 
 - (void)refresh {
  	// Start loading the posts
-	NSString *urlToLoad = [AppNetConfig postsUrl];
-	if(self.loadGlobalStream) {
-		urlToLoad = [AppNetConfig globalPostsUrl];
-	}
-	
-	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlToLoad]];
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.urlToLoad]];
 	
 	ServerRequest* serverConnect = [[ServerRequest alloc] init];
 	[serverConnect createConnection:request usingBlock:^(NSData *responseData, NSError *error){

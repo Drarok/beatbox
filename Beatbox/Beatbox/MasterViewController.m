@@ -8,6 +8,7 @@
 
 #import "MasterViewController.h"
 #import "DetailTableViewController.h"
+#import "AppNetConfig.h"
 
 @interface MasterViewController ()
 @property(strong, nonatomic) NSArray *menu;
@@ -84,11 +85,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSString *selection = [self.menu objectAtIndex:indexPath.row];
-	if([selection isEqualToString:@"Global"]) {
-		[self.detailViewController setLoadGlobalStream:YES];
+	if([selection isEqualToString:@"My Stream"]) {
+		[self.detailViewController setUrlToLoad:[AppNetConfig postsUrl]];
 		[self.detailViewController startLoading];
-	} else if([selection isEqualToString:@"My Stream"]) {
-		[self.detailViewController setLoadGlobalStream:NO];
+	} else if([selection isEqualToString:@"My Posts"]) {
+		[self.detailViewController setUrlToLoad:[AppNetConfig userPostsUrl]];
+		[self.detailViewController startLoading];
+	} else if([selection isEqualToString:@"Mentions"]) {
+		[self.detailViewController setUrlToLoad:[AppNetConfig mentionPostsUrl]];
+		[self.detailViewController startLoading];
+	} else if([selection isEqualToString:@"Global"]) {
+		[self.detailViewController setUrlToLoad:[AppNetConfig globalPostsUrl]];
 		[self.detailViewController startLoading];
 	}
 }

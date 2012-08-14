@@ -30,4 +30,6 @@
 +(NSString *)connectUrl;
 +(NSString *)postsUrl;
 +(NSString *)globalPostsUrl;
++(NSString *)userPostsUrl;
++(NSString *)mentionPostsUrl;
 @end
