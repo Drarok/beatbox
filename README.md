@@ -4,7 +4,8 @@ Beatbox is an iPad app for App.net. Much like the tortoise in the Aesop fable, I
 
 ##### Using the source ######
 - Clone the source
-- Run 'git submodule update'
+- Run 'git submodule init', followed by 'git submodule update'
+- Open AppNetConfig.h, and input your own client_id, callback, and scopes needed
 
 Voila! You should be good to go.
 

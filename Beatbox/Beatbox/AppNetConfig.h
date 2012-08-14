@@ -11,19 +11,19 @@
 /*
  Place your App.net client id here
  */
-#define APPNET_CLIENT_ID				@"BBTb7ee2csL7BUQFhc36k8RDuMqrH6Kj"
+#define APPNET_CLIENT_ID				@"CLIENT_ID_HERE"
 
 
 /*
  Your app.net callback URL
  */
-#define APPNET_CALLBACK					@"beatbox://callback/"
+#define APPNET_CALLBACK					@"CALLBACK_HERE"
 
 
 /*
  The scopes your app is requesting
  */
-#define APPNET_SCOPE					@"stream,email,write_post,follow,messages"
+#define APPNET_SCOPE					@"SCOPES_HERE"
 
 
 @interface AppNetConfig : NSObject
