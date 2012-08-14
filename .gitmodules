@@ -1,0 +1,3 @@
+[submodule "Beatbox/Beatbox/External/json-framework"]
+	path = Beatbox/Beatbox/External/json-framework
+	url = https://github.com/stig/json-framework.git
