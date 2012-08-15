@@ -42,7 +42,7 @@
 
 -(IBAction)loginPressed:(id)sender {
 	NSString *urlStr = [AppNetConfig connectUrl];
-	NSURL *url = [NSURL URLWithString:urlStr];
+    NSURL *url = [NSURL URLWithString:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	
 	NSLog(@"Connecting to app.net with the url: %@", urlStr);
 	[[UIApplication sharedApplication] openURL:url];
