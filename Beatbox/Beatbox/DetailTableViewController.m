@@ -26,6 +26,8 @@
     if (self) {
 		self.posts = [NSArray array];
 		self.urlToLoad = [AppNetConfig postsUrl];
+		
+		[[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"accessToken" options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
 }
@@ -35,8 +37,14 @@
     if (self) {
 		self.posts = [NSArray array];
 		self.urlToLoad = [AppNetConfig postsUrl];
+		
+		[[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"accessToken" options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
+}
+
+- (void)dealloc {
+	[[NSUserDefaults standardUserDefaults] removeObserver:self forKeyPath:@"accessToken"];
 }
 
 - (void)viewDidLoad {
@@ -47,6 +55,13 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	if([keyPath isEqualToString:@"accessToken"]) {
+		self.urlToLoad = [AppNetConfig postsUrl];
+		[self startLoading];
+	}
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
