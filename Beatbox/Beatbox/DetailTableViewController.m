@@ -11,6 +11,7 @@
 #import "AppNetConfig.h"
 #import "SBJson.h"
 #import "DetailTableViewCell.h"
+#import "IFTweetLabel.h"
 
 @interface DetailTableViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -28,6 +29,8 @@
 		self.urlToLoad = [AppNetConfig postsUrl];
 		
 		[[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"accessToken" options:NSKeyValueObservingOptionNew context:nil];
+		
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_handleTweetNotification:) name:IFTweetLabelURLNotification object:nil];
     }
     return self;
 }
@@ -39,12 +42,15 @@
 		self.urlToLoad = [AppNetConfig postsUrl];
 		
 		[[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"accessToken" options:NSKeyValueObservingOptionNew context:nil];
+		
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_handleTweetNotification:) name:IFTweetLabelURLNotification object:nil];
     }
     return self;
 }
 
 - (void)dealloc {
 	[[NSUserDefaults standardUserDefaults] removeObserver:self forKeyPath:@"accessToken"];
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidLoad {
@@ -155,6 +161,10 @@
 			[self showErrorAndClose];
 		}
 	}];    
+}
+
+- (void)_handleTweetNotification:(NSNotification *)notification {
+	NSLog(@"handleTweetNotification: notification = %@", notification);
 }
 
 @end

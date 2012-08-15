@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9403DDB615DB7BFF00BC82D7 /* IFTweetLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9403DDB515DB7BFF00BC82D7 /* IFTweetLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9403DDBD15DB7C0400BC82D7 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9403DDBA15DB7C0400BC82D7 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9403DDBE15DB7C0400BC82D7 /* RKLMatchEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9403DDBC15DB7C0400BC82D7 /* RKLMatchEnumerator.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9403DDC015DB7CA200BC82D7 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9403DDBF15DB7CA200BC82D7 /* libicucore.dylib */; };
 		94C3C34215D8DDF500D911EA /* ServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3C34115D8DDF500D911EA /* ServerRequest.m */; };
 		94C3C51315D8E00D00D911EA /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3C34D15D8E00D00D911EA /* NSObject+SBJson.m */; };
 		94C3C51415D8E00D00D911EA /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3C35015D8E00D00D911EA /* SBJsonParser.m */; };
@@ -41,6 +45,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9403DDB415DB7BFF00BC82D7 /* IFTweetLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFTweetLabel.h; path = External/IFTweetLabel.h; sourceTree = "<group>"; };
+		9403DDB515DB7BFF00BC82D7 /* IFTweetLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IFTweetLabel.m; path = External/IFTweetLabel.m; sourceTree = "<group>"; };
+		9403DDB915DB7C0400BC82D7 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		9403DDBA15DB7C0400BC82D7 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		9403DDBB15DB7C0400BC82D7 /* RKLMatchEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKLMatchEnumerator.h; sourceTree = "<group>"; };
+		9403DDBC15DB7C0400BC82D7 /* RKLMatchEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKLMatchEnumerator.m; sourceTree = "<group>"; };
+		9403DDBF15DB7CA200BC82D7 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		94C3C34015D8DDF500D911EA /* ServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerRequest.h; path = Utilities/ServerRequest.h; sourceTree = "<group>"; };
 		94C3C34115D8DDF500D911EA /* ServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerRequest.m; path = Utilities/ServerRequest.m; sourceTree = "<group>"; };
 		94C3C34C15D8E00D00D911EA /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
@@ -105,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9403DDC015DB7CA200BC82D7 /* libicucore.dylib in Frameworks */,
 				94C3C67F15DA130500D911EA /* QuartzCore.framework in Frameworks */,
 				94D453A915D844200060D8EB /* UIKit.framework in Frameworks */,
 				94D453AB15D844200060D8EB /* Foundation.framework in Frameworks */,
@@ -115,6 +127,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9403DDB815DB7C0400BC82D7 /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				9403DDB915DB7C0400BC82D7 /* RegexKitLite.h */,
+				9403DDBA15DB7C0400BC82D7 /* RegexKitLite.m */,
+				9403DDBB15DB7C0400BC82D7 /* RKLMatchEnumerator.h */,
+				9403DDBC15DB7C0400BC82D7 /* RKLMatchEnumerator.m */,
+			);
+			name = RegexKitLite;
+			path = External/RegexKitLite;
+			sourceTree = "<group>";
+		};
 		94C3C33E15D8DDD600D911EA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +153,9 @@
 		94C3C34715D8DFD500D911EA /* External */ = {
 			isa = PBXGroup;
 			children = (
+				9403DDB415DB7BFF00BC82D7 /* IFTweetLabel.h */,
+				9403DDB515DB7BFF00BC82D7 /* IFTweetLabel.m */,
+				9403DDB815DB7C0400BC82D7 /* RegexKitLite */,
 				94C3C34815D8E00D00D911EA /* json-framework */,
 			);
 			name = External;
@@ -223,6 +250,7 @@
 		94D453A715D844200060D8EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9403DDBF15DB7CA200BC82D7 /* libicucore.dylib */,
 				94C3C67E15DA130500D911EA /* QuartzCore.framework */,
 				94D453A815D844200060D8EB /* UIKit.framework */,
 				94D453AA15D844200060D8EB /* Foundation.framework */,
@@ -354,6 +382,9 @@
 				94C3C51E15D8E00D00D911EA /* SBJsonWriter.m in Sources */,
 				94C3C65F15D8E16900D911EA /* DetailTableViewCell.m in Sources */,
 				94C3C68215DA135300D911EA /* PullToRefreshTableViewController.m in Sources */,
+				9403DDB615DB7BFF00BC82D7 /* IFTweetLabel.m in Sources */,
+				9403DDBD15DB7C0400BC82D7 /* RegexKitLite.m in Sources */,
+				9403DDBE15DB7C0400BC82D7 /* RKLMatchEnumerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

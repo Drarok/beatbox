@@ -8,6 +8,7 @@
 
 #import "DetailTableViewCell.h"
 #import "ServerRequest.h"
+#import "IFTweetLabel.h"
 
 static NSDateFormatter *preDateFormatter = nil;
 static NSDateFormatter *postDateFormatter = nil;
@@ -15,7 +16,7 @@ static NSDateFormatter *postDateFormatter = nil;
 @interface DetailTableViewCell ()
 @property(strong, nonatomic) UIImageView *userImage;
 @property(strong, nonatomic) UILabel *userName;
-@property(strong, nonatomic) UITextView *userPost;
+@property(strong, nonatomic) IFTweetLabel *userPost;
 @property(strong, nonatomic) UILabel *postDate;
 
 @property(strong, nonatomic) NSTimer *photoTimer;
@@ -35,15 +36,18 @@ static NSDateFormatter *postDateFormatter = nil;
 		[self.contentView addSubview:self.userImage];
 		
 		self.userName = [[UILabel alloc] initWithFrame:CGRectMake(1, 1, 50, 50)];
+		[self.userName setBackgroundColor:[UIColor clearColor]];
 		[self.contentView addSubview:self.userName];
 		
-		self.userPost = [[UITextView alloc] initWithFrame:CGRectMake(1, 1, 50, 50)];
-		[self.userPost setEditable:NO];
-		[self.userPost setScrollEnabled:NO];
+		self.userPost = [[IFTweetLabel alloc] initWithFrame:CGRectMake(1, 1, 50, 50)];
+		[self.userPost setBackgroundColor:[UIColor clearColor]];
+		[self.userPost setNumberOfLines:0];
+		[self.userPost setLinksEnabled:YES];
 		[self.contentView addSubview:self.userPost];
 		
 		self.postDate = [[UILabel alloc] initWithFrame:CGRectMake(1, 1, 50, 50)];
 		[self.postDate setFont:[UIFont systemFontOfSize:12.0]];
+		[self.postDate setBackgroundColor:[UIColor clearColor]];
 		[self.contentView addSubview:self.postDate];
     }
     return self;
@@ -108,8 +112,8 @@ static NSDateFormatter *postDateFormatter = nil;
     CGRect contentBounds = [self.contentView bounds];
     
     [self.userImage setFrame:CGRectMake(contentBounds.origin.x + 5, contentBounds.origin.y + 5, 50, 50)];
-	[self.userName setFrame:CGRectMake(contentBounds.origin.x + 60, contentBounds.origin.y, contentBounds.size.width - 60, 30)];
-	[self.userPost setFrame:CGRectMake(contentBounds.origin.x + 55, contentBounds.origin.y + 30, contentBounds.size.width - 55, 50)];
+	[self.userName setFrame:CGRectMake(contentBounds.origin.x + 60, contentBounds.origin.y + 5, contentBounds.size.width - 60, 20)];
+	[self.userPost setFrame:CGRectMake(contentBounds.origin.x + 65, contentBounds.origin.y + 25, contentBounds.size.width - 65, 60)];
 	[self.postDate setFrame:CGRectMake(contentBounds.origin.x + contentBounds.size.width - 100, contentBounds.origin.y, 100, 30)];
 }
 
@@ -144,6 +148,5 @@ static NSDateFormatter *postDateFormatter = nil;
         }
     }]; 
 }
-
 
 @end
