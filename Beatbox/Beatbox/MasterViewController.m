@@ -89,7 +89,7 @@
 		[self.detailViewController setUrlToLoad:[AppNetConfig postsUrl]];
 		[self.detailViewController startLoading];
 	} else if([selection isEqualToString:@"My Posts"]) {
-		[self.detailViewController setUrlToLoad:[AppNetConfig userPostsUrl]];
+		[self.detailViewController setUrlToLoad:[AppNetConfig userPostsUrl:@"me"]];
 		[self.detailViewController startLoading];
 	} else if([selection isEqualToString:@"Mentions"]) {
 		[self.detailViewController setUrlToLoad:[AppNetConfig mentionPostsUrl]];

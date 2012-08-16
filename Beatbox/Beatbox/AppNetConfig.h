@@ -30,6 +30,7 @@
 +(NSString *)connectUrl;
 +(NSString *)postsUrl;
 +(NSString *)globalPostsUrl;
-+(NSString *)userPostsUrl;
++(NSString *)userPostsUrl:(NSString *)userID;
 +(NSString *)mentionPostsUrl;
++(NSString *)userUrl:(NSString *)userID;
 @end

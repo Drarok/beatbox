@@ -11,6 +11,8 @@
 		9403DDBD15DB7C0400BC82D7 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9403DDBA15DB7C0400BC82D7 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9403DDBE15DB7C0400BC82D7 /* RKLMatchEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9403DDBC15DB7C0400BC82D7 /* RKLMatchEnumerator.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9403DDC015DB7CA200BC82D7 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9403DDBF15DB7CA200BC82D7 /* libicucore.dylib */; };
+		9403DDC815DCC58D00BC82D7 /* PersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9403DDC615DCC58D00BC82D7 /* PersonViewController.m */; };
+		9403DDC915DCC58D00BC82D7 /* PersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9403DDC715DCC58D00BC82D7 /* PersonViewController.xib */; };
 		94C3C34215D8DDF500D911EA /* ServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3C34115D8DDF500D911EA /* ServerRequest.m */; };
 		94C3C51315D8E00D00D911EA /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3C34D15D8E00D00D911EA /* NSObject+SBJson.m */; };
 		94C3C51415D8E00D00D911EA /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3C35015D8E00D00D911EA /* SBJsonParser.m */; };
@@ -52,6 +54,9 @@
 		9403DDBB15DB7C0400BC82D7 /* RKLMatchEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKLMatchEnumerator.h; sourceTree = "<group>"; };
 		9403DDBC15DB7C0400BC82D7 /* RKLMatchEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKLMatchEnumerator.m; sourceTree = "<group>"; };
 		9403DDBF15DB7CA200BC82D7 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		9403DDC515DCC58C00BC82D7 /* PersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonViewController.h; sourceTree = "<group>"; };
+		9403DDC615DCC58D00BC82D7 /* PersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonViewController.m; sourceTree = "<group>"; };
+		9403DDC715DCC58D00BC82D7 /* PersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonViewController.xib; sourceTree = "<group>"; };
 		94C3C34015D8DDF500D911EA /* ServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerRequest.h; path = Utilities/ServerRequest.h; sourceTree = "<group>"; };
 		94C3C34115D8DDF500D911EA /* ServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerRequest.m; path = Utilities/ServerRequest.m; sourceTree = "<group>"; };
 		94C3C34C15D8E00D00D911EA /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
@@ -276,6 +281,9 @@
 				94D453E015D8D58E0060D8EB /* DetailTableViewController.m */,
 				94C3C65D15D8E16900D911EA /* DetailTableViewCell.h */,
 				94C3C65E15D8E16900D911EA /* DetailTableViewCell.m */,
+				9403DDC515DCC58C00BC82D7 /* PersonViewController.h */,
+				9403DDC615DCC58D00BC82D7 /* PersonViewController.m */,
+				9403DDC715DCC58D00BC82D7 /* PersonViewController.xib */,
 				94C3C68315DA159000D911EA /* Resources */,
 				94C3C34715D8DFD500D911EA /* External */,
 				94C3C33E15D8DDD600D911EA /* Utilities */,
@@ -351,6 +359,7 @@
 				94C3C53715D8E00D00D911EA /* InfoPlist.strings in Resources */,
 				94C3C53815D8E00D00D911EA /* SBJson-Info.plist in Resources */,
 				94C3C68715DA15C900D911EA /* arrow.png in Resources */,
+				9403DDC915DCC58D00BC82D7 /* PersonViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +394,7 @@
 				9403DDB615DB7BFF00BC82D7 /* IFTweetLabel.m in Sources */,
 				9403DDBD15DB7C0400BC82D7 /* RegexKitLite.m in Sources */,
 				9403DDBE15DB7C0400BC82D7 /* RKLMatchEnumerator.m in Sources */,
+				9403DDC815DCC58D00BC82D7 /* PersonViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

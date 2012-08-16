@@ -112,7 +112,7 @@ static NSDateFormatter *postDateFormatter = nil;
     CGRect contentBounds = [self.contentView bounds];
     
     [self.userImage setFrame:CGRectMake(contentBounds.origin.x + 5, contentBounds.origin.y + 5, 50, 50)];
-	[self.userName setFrame:CGRectMake(contentBounds.origin.x + 60, contentBounds.origin.y + 5, contentBounds.size.width - 60, 20)];
+	[self.userName setFrame:CGRectMake(contentBounds.origin.x + 65, contentBounds.origin.y + 5, contentBounds.size.width - 60, 20)];
 	[self.userPost setFrame:CGRectMake(contentBounds.origin.x + 65, contentBounds.origin.y + 25, contentBounds.size.width - 65, 60)];
 	[self.postDate setFrame:CGRectMake(contentBounds.origin.x + contentBounds.size.width - 100, contentBounds.origin.y, 100, 30)];
 }

@@ -12,6 +12,7 @@
 #import "SBJson.h"
 #import "DetailTableViewCell.h"
 #import "IFTweetLabel.h"
+#import "PersonViewController.h"
 
 @interface DetailTableViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -97,12 +98,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section. Take out the deleted posts first.
-	self.posts = [self.posts filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.deleted != %@", @"1"]];
+	self.posts = [self.posts filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.is_deleted != %@", [NSNumber numberWithBool:YES]]];
     return [self.posts count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 80.0;
+	return 90.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -165,6 +166,52 @@
 
 - (void)_handleTweetNotification:(NSNotification *)notification {
 	NSLog(@"handleTweetNotification: notification = %@", notification);
+	
+	NSString *match = [notification object];
+	NSLog(@"Navigating to %@", match);
+	
+	// Check to see if the string refers to a person, subject, or URL
+	if([match characterAtIndex:0] == '@' && [match length] > 1) {
+		
+		NSString *personID = [self findUserIDFromMatch:[match substringFromIndex:1]];
+		if(personID) {
+			PersonViewController *person = [[PersonViewController alloc] initWithNibName:nil bundle:nil];
+			[person setTitle:match];
+			[person setPersonID:personID];
+			[self.navigationController pushViewController:person animated:YES];	
+		} else {
+			NSLog(@"Could not find person ID!");
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Sorry, the person you selected could not be found" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+			[alert show];
+		}
+	} else if([match characterAtIndex:0] == '#') {
+		
+		NSLog(@"Hash!");
+	}
+}
+
+- (NSString *)findUserIDFromMatch:(NSString *)name {
+	NSString *foundID = nil;
+	
+	for(NSDictionary *post in self.posts) {
+		NSDictionary *entities = [post objectForKey:@"entities"];
+		
+		if(entities) {
+			NSArray *mentions = [entities objectForKey:@"mentions"];
+		
+			if(mentions) {				
+				for(NSDictionary *singleMention in mentions) {
+					
+					if([[singleMention objectForKey:@"name"] caseInsensitiveCompare:name] == NSOrderedSame) {
+						foundID = [singleMention objectForKey:@"id"];
+						break;
+					}
+				}
+			}
+		}
+	}
+	
+	return foundID;
 }
 
 @end
