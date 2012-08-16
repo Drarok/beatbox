@@ -8,7 +8,7 @@
 
 #import "DetailTableViewController.h"
 #import "ServerRequest.h"
-#import "AppNetConfig.h"
+#import "ADNConnect.h"
 #import "SBJson.h"
 #import "DetailTableViewCell.h"
 #import "IFTweetLabel.h"
@@ -27,7 +27,7 @@
     self = [super initWithStyle:style];
     if (self) {
 		self.posts = [NSArray array];
-		self.urlToLoad = [AppNetConfig postsUrl];
+		self.urlToLoad = [ADNConnect postsUrl];
 		
 		[[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"accessToken" options:NSKeyValueObservingOptionNew context:nil];
 		
@@ -40,7 +40,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
 		self.posts = [NSArray array];
-		self.urlToLoad = [AppNetConfig postsUrl];
+		self.urlToLoad = [ADNConnect postsUrl];
 		
 		[[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"accessToken" options:NSKeyValueObservingOptionNew context:nil];
 		
@@ -66,7 +66,7 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	if([keyPath isEqualToString:@"accessToken"]) {
-		self.urlToLoad = [AppNetConfig postsUrl];
+		self.urlToLoad = [ADNConnect postsUrl];
 		[self startLoading];
 	}
 }

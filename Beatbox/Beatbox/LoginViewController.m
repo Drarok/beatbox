@@ -7,7 +7,7 @@
 //
 
 #import "LoginViewController.h"
-#import "AppNetConfig.h"
+#import "ADNConnect.h"
 
 @interface LoginViewController ()
 
@@ -41,7 +41,7 @@
 }
 
 -(IBAction)loginPressed:(id)sender {
-	NSString *urlStr = [AppNetConfig connectUrl];
+	NSString *urlStr = [ADNConnect connectUrl];
     NSURL *url = [NSURL URLWithString:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	
 	NSLog(@"Connecting to app.net with the url: %@", urlStr);

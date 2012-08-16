@@ -8,7 +8,7 @@
 
 #import "PersonViewController.h"
 #import "ServerRequest.h"
-#import "AppNetConfig.h"
+#import "ADNConnect.h"
 #import "SBJson.h"
 
 @interface PersonViewController ()
@@ -59,7 +59,7 @@
 
 - (void)retrievePersonData {
  	// Start loading the posts
-	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[AppNetConfig userUrl:self.personID]]];
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[ADNConnect userUrl:self.personID]]];
 	
 	ServerRequest* serverConnect = [[ServerRequest alloc] init];
 	[serverConnect createConnection:request usingBlock:^(NSData *responseData, NSError *error) {

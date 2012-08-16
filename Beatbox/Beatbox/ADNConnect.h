@@ -7,26 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ADNConfig.h"
 
-/*
- Place your App.net client id here
- */
-#define APPNET_CLIENT_ID				@"CLIENT_ID_HERE"
-
-
-/*
- Your app.net callback URL
- */
-#define APPNET_CALLBACK					@"CALLBACK_HERE"
-
-
-/*
- The scopes your app is requesting
- */
-#define APPNET_SCOPE					@"SCOPES_HERE"
-
-
-@interface AppNetConfig : NSObject
+@interface ADNConnect : NSObject
 +(NSString *)connectUrl;
 +(NSString *)postsUrl;
 +(NSString *)globalPostsUrl;

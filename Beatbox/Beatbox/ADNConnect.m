@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "AppNetConfig.h"
+#import "ADNConnect.h"
 
-@implementation AppNetConfig
+@implementation ADNConnect
 
 +(NSString *)connectUrl {
 	return [NSString stringWithFormat:@"https://alpha.app.net/oauth/authenticate?client_id=%@&response_type=token&redirect_uri=%@&scope=%@",

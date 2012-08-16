@@ -8,7 +8,7 @@
 
 #import "MasterViewController.h"
 #import "DetailTableViewController.h"
-#import "AppNetConfig.h"
+#import "ADNConnect.h"
 
 @interface MasterViewController ()
 @property(strong, nonatomic) NSArray *menu;
@@ -86,16 +86,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSString *selection = [self.menu objectAtIndex:indexPath.row];
 	if([selection isEqualToString:@"My Stream"]) {
-		[self.detailViewController setUrlToLoad:[AppNetConfig postsUrl]];
+		[self.detailViewController setUrlToLoad:[ADNConnect postsUrl]];
 		[self.detailViewController startLoading];
 	} else if([selection isEqualToString:@"My Posts"]) {
-		[self.detailViewController setUrlToLoad:[AppNetConfig userPostsUrl:@"me"]];
+		[self.detailViewController setUrlToLoad:[ADNConnect userPostsUrl:@"me"]];
 		[self.detailViewController startLoading];
 	} else if([selection isEqualToString:@"Mentions"]) {
-		[self.detailViewController setUrlToLoad:[AppNetConfig mentionPostsUrl]];
+		[self.detailViewController setUrlToLoad:[ADNConnect mentionPostsUrl]];
 		[self.detailViewController startLoading];
 	} else if([selection isEqualToString:@"Global"]) {
-		[self.detailViewController setUrlToLoad:[AppNetConfig globalPostsUrl]];
+		[self.detailViewController setUrlToLoad:[ADNConnect globalPostsUrl]];
 		[self.detailViewController startLoading];
 	}
 }

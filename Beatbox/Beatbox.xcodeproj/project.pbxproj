@@ -13,6 +13,7 @@
 		9403DDC015DB7CA200BC82D7 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9403DDBF15DB7CA200BC82D7 /* libicucore.dylib */; };
 		9403DDC815DCC58D00BC82D7 /* PersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9403DDC615DCC58D00BC82D7 /* PersonViewController.m */; };
 		9403DDC915DCC58D00BC82D7 /* PersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9403DDC715DCC58D00BC82D7 /* PersonViewController.xib */; };
+		9403DDCE15DCD12600BC82D7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9403DDCD15DCD12500BC82D7 /* README.md */; };
 		94C3C34215D8DDF500D911EA /* ServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3C34115D8DDF500D911EA /* ServerRequest.m */; };
 		94C3C51315D8E00D00D911EA /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3C34D15D8E00D00D911EA /* NSObject+SBJson.m */; };
 		94C3C51415D8E00D00D911EA /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3C35015D8E00D00D911EA /* SBJsonParser.m */; };
@@ -42,7 +43,7 @@
 		94D453BF15D844200060D8EB /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D453BE15D844200060D8EB /* MasterViewController.m */; };
 		94D453CB15D844570060D8EB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D453C915D844570060D8EB /* LoginViewController.m */; };
 		94D453CC15D844570060D8EB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D453CA15D844570060D8EB /* LoginViewController.xib */; };
-		94D453DE15D890820060D8EB /* AppNetConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D453DD15D890820060D8EB /* AppNetConfig.m */; };
+		94D453DE15D890820060D8EB /* ADNConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D453DD15D890820060D8EB /* ADNConnect.m */; };
 		94D453E115D8D58E0060D8EB /* DetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D453E015D8D58E0060D8EB /* DetailTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,8 @@
 		9403DDC515DCC58C00BC82D7 /* PersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonViewController.h; sourceTree = "<group>"; };
 		9403DDC615DCC58D00BC82D7 /* PersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonViewController.m; sourceTree = "<group>"; };
 		9403DDC715DCC58D00BC82D7 /* PersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonViewController.xib; sourceTree = "<group>"; };
+		9403DDCA15DCD0DE00BC82D7 /* ADNConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNConfig.h; sourceTree = "<group>"; };
+		9403DDCD15DCD12500BC82D7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		94C3C34015D8DDF500D911EA /* ServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerRequest.h; path = Utilities/ServerRequest.h; sourceTree = "<group>"; };
 		94C3C34115D8DDF500D911EA /* ServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerRequest.m; path = Utilities/ServerRequest.m; sourceTree = "<group>"; };
 		94C3C34C15D8E00D00D911EA /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
@@ -110,8 +113,8 @@
 		94D453C815D844570060D8EB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		94D453C915D844570060D8EB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		94D453CA15D844570060D8EB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		94D453DC15D890820060D8EB /* AppNetConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppNetConfig.h; sourceTree = "<group>"; };
-		94D453DD15D890820060D8EB /* AppNetConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppNetConfig.m; sourceTree = "<group>"; };
+		94D453DC15D890820060D8EB /* ADNConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNConnect.h; sourceTree = "<group>"; };
+		94D453DD15D890820060D8EB /* ADNConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNConnect.m; sourceTree = "<group>"; };
 		94D453DF15D8D58E0060D8EB /* DetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableViewController.h; sourceTree = "<group>"; };
 		94D453E015D8D58E0060D8EB /* DetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +145,16 @@
 			);
 			name = RegexKitLite;
 			path = External/RegexKitLite;
+			sourceTree = "<group>";
+		};
+		9403DDCF15DCD13B00BC82D7 /* ADN */ = {
+			isa = PBXGroup;
+			children = (
+				9403DDCA15DCD0DE00BC82D7 /* ADNConfig.h */,
+				94D453DC15D890820060D8EB /* ADNConnect.h */,
+				94D453DD15D890820060D8EB /* ADNConnect.m */,
+			);
+			name = ADN;
 			sourceTree = "<group>";
 		};
 		94C3C33E15D8DDD600D911EA /* Utilities */ = {
@@ -267,10 +280,9 @@
 		94D453AE15D844200060D8EB /* Beatbox */ = {
 			isa = PBXGroup;
 			children = (
+				9403DDCF15DCD13B00BC82D7 /* ADN */,
 				94D453B715D844200060D8EB /* AppDelegate.h */,
 				94D453B815D844200060D8EB /* AppDelegate.m */,
-				94D453DC15D890820060D8EB /* AppNetConfig.h */,
-				94D453DD15D890820060D8EB /* AppNetConfig.m */,
 				94D453BA15D844200060D8EB /* MainStoryboard.storyboard */,
 				94D453C815D844570060D8EB /* LoginViewController.h */,
 				94D453C915D844570060D8EB /* LoginViewController.m */,
@@ -284,6 +296,7 @@
 				9403DDC515DCC58C00BC82D7 /* PersonViewController.h */,
 				9403DDC615DCC58D00BC82D7 /* PersonViewController.m */,
 				9403DDC715DCC58D00BC82D7 /* PersonViewController.xib */,
+				9403DDCD15DCD12500BC82D7 /* README.md */,
 				94C3C68315DA159000D911EA /* Resources */,
 				94C3C34715D8DFD500D911EA /* External */,
 				94C3C33E15D8DDD600D911EA /* Utilities */,
@@ -360,6 +373,7 @@
 				94C3C53815D8E00D00D911EA /* SBJson-Info.plist in Resources */,
 				94C3C68715DA15C900D911EA /* arrow.png in Resources */,
 				9403DDC915DCC58D00BC82D7 /* PersonViewController.xib in Resources */,
+				9403DDCE15DCD12600BC82D7 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,7 +388,7 @@
 				94D453B915D844200060D8EB /* AppDelegate.m in Sources */,
 				94D453BF15D844200060D8EB /* MasterViewController.m in Sources */,
 				94D453CB15D844570060D8EB /* LoginViewController.m in Sources */,
-				94D453DE15D890820060D8EB /* AppNetConfig.m in Sources */,
+				94D453DE15D890820060D8EB /* ADNConnect.m in Sources */,
 				94D453E115D8D58E0060D8EB /* DetailTableViewController.m in Sources */,
 				94C3C34215D8DDF500D911EA /* ServerRequest.m in Sources */,
 				94C3C51315D8E00D00D911EA /* NSObject+SBJson.m in Sources */,
