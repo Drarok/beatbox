@@ -18,4 +18,4 @@ Interested in helping out? The area I'm most lacking is graphic/asset creation, 
 
 ##### Contact #####
 
-Ryan Gerard (@ryan on app.net, @dreadpirateryan on twitter, [email](mailto:ryan.gerard@gmail.com))
+Ryan Gerard (@g on app.net, @dreadpirateryan on twitter, [email](mailto:ryan.gerard@gmail.com))
