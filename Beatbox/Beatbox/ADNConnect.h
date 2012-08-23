@@ -16,4 +16,5 @@
 +(NSString *)userPostsUrl:(NSString *)userID;
 +(NSString *)mentionPostsUrl;
 +(NSString *)userUrl:(NSString *)userID;
++(NSString *)taggedPostsUrl:(NSString *)tag;
 @end

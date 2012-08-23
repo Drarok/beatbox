@@ -8,6 +8,8 @@
 
 #import "ADNConnect.h"
 
+const NSString *adnUrl = @"https://alpha-api.app.net";
+
 @implementation ADNConnect
 
 +(NSString *)connectUrl {
@@ -19,27 +21,32 @@
 
 +(NSString *)postsUrl {
 	NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
-	return [NSString stringWithFormat:@"https://alpha-api.app.net/stream/0/posts/stream?access_token=%@", accessToken];
+	return [NSString stringWithFormat:@"%@/stream/0/posts/stream?access_token=%@", adnUrl, accessToken];
 }
 
 +(NSString *)globalPostsUrl {
 	NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
-	return [NSString stringWithFormat:@"https://alpha-api.app.net/stream/0/posts/stream/global?access_token=%@", accessToken];
+	return [NSString stringWithFormat:@"%@/stream/0/posts/stream/global?access_token=%@", adnUrl, accessToken];
 }
 
 +(NSString *)userPostsUrl:(NSString *)userID {
 	NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
-	return [NSString stringWithFormat:@"https://alpha-api.app.net/stream/0/users/%@/posts?access_token=%@", userID, accessToken];
+	return [NSString stringWithFormat:@"%@/stream/0/users/%@/posts?access_token=%@", adnUrl, userID, accessToken];
 }
 
 +(NSString *)mentionPostsUrl {
 	NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
-	return [NSString stringWithFormat:@"https://alpha-api.app.net/stream/0/users/me/mentions?access_token=%@", accessToken];
+	return [NSString stringWithFormat:@"%@/stream/0/users/me/mentions?access_token=%@", adnUrl, accessToken];
 }
 
 +(NSString *)userUrl:(NSString *)userID {
 	NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
-	return [NSString stringWithFormat:@"https://alpha-api.app.net/stream/0/users/%@?access_token=%@", userID, accessToken];
+	return [NSString stringWithFormat:@"%@/stream/0/users/%@?access_token=%@", adnUrl, userID, accessToken];
+}
+
++(NSString *)taggedPostsUrl:(NSString *)tag {
+	NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
+	return [NSString stringWithFormat:@"%@/stream/0/posts/tag/%@?access_token=%@", adnUrl, tag, accessToken];    
 }
 
 @end

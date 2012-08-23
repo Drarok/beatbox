@@ -45,6 +45,7 @@
 		94D453CC15D844570060D8EB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D453CA15D844570060D8EB /* LoginViewController.xib */; };
 		94D453DE15D890820060D8EB /* ADNConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D453DD15D890820060D8EB /* ADNConnect.m */; };
 		94D453E115D8D58E0060D8EB /* DetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D453E015D8D58E0060D8EB /* DetailTableViewController.m */; };
+		94E226CB15E5E34F0097A908 /* UIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E226C915E5E34F0097A908 /* UIWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,8 @@
 		94D453DD15D890820060D8EB /* ADNConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNConnect.m; sourceTree = "<group>"; };
 		94D453DF15D8D58E0060D8EB /* DetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableViewController.h; sourceTree = "<group>"; };
 		94D453E015D8D58E0060D8EB /* DetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewController.m; sourceTree = "<group>"; };
+		94E226C815E5E34F0097A908 /* UIWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIWebViewController.h; path = Utilities/UIWebViewController.h; sourceTree = "<group>"; };
+		94E226C915E5E34F0097A908 /* UIWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIWebViewController.m; path = Utilities/UIWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +167,8 @@
 				94C3C68115DA135300D911EA /* PullToRefreshTableViewController.m */,
 				94C3C34015D8DDF500D911EA /* ServerRequest.h */,
 				94C3C34115D8DDF500D911EA /* ServerRequest.m */,
+				94E226C815E5E34F0097A908 /* UIWebViewController.h */,
+				94E226C915E5E34F0097A908 /* UIWebViewController.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -409,6 +414,7 @@
 				9403DDBD15DB7C0400BC82D7 /* RegexKitLite.m in Sources */,
 				9403DDBE15DB7C0400BC82D7 /* RKLMatchEnumerator.m in Sources */,
 				9403DDC815DCC58D00BC82D7 /* PersonViewController.m in Sources */,
+				94E226CB15E5E34F0097A908 /* UIWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

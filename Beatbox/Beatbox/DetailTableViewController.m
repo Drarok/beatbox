@@ -13,6 +13,7 @@
 #import "DetailTableViewCell.h"
 #import "IFTweetLabel.h"
 #import "PersonViewController.h"
+#import "UIWebViewController.h"
 
 @interface DetailTableViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -184,10 +185,20 @@
 			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Sorry, the person you selected could not be found" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 			[alert show];
 		}
-	} else if([match characterAtIndex:0] == '#') {
-		
-		NSLog(@"Hash!");
-	}
+	} else if([match characterAtIndex:0] == '#') {		
+		NSLog(@"Hash %@", match);
+        
+        DetailTableViewController *hashDetail = [[DetailTableViewController alloc] initWithStyle:UITableViewStylePlain];
+        [hashDetail setUrlToLoad:[ADNConnect taggedPostsUrl:[match substringFromIndex:1]]];
+        [hashDetail setTitle:match];
+        [self.navigationController pushViewController:hashDetail animated:YES];
+	} else {
+        NSLog(@"URL clicked %@", match);
+        
+        UIWebViewController *webView = [[UIWebViewController alloc] initWithNibName:nil bundle:nil];
+        [webView setUrlToLoad:match];
+        [self.navigationController pushViewController:webView animated:YES];
+    }
 }
 
 - (NSString *)findUserIDFromMatch:(NSString *)name {
