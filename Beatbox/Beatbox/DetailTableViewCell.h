@@ -10,4 +10,5 @@
 
 @interface DetailTableViewCell : UITableViewCell
 @property(nonatomic, strong) NSDictionary *postData;
+@property(nonatomic, strong) UIImage *userPicture;
 @end

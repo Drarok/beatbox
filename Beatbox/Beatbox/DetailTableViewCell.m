@@ -26,7 +26,7 @@ static NSDateFormatter *postDateFormatter = nil;
 @implementation DetailTableViewCell
 
 @synthesize postData = postData_;
-@synthesize userImage, userName, userPost, postDate, photoTimer, photoRequest;
+@synthesize userImage, userName, userPost, postDate, photoTimer, photoRequest, userPicture;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -98,7 +98,9 @@ static NSDateFormatter *postDateFormatter = nil;
 		[self.userPost setText:text];
 	}
 	
-	if(avatarUrl) {
+    if(self.userPicture) {
+        [self.userImage setImage:self.userPicture];
+    } else if(avatarUrl) {
 		// Set the default avatar first
 		[self.userImage setImage:[UIImage imageNamed:@"default_avatar"]];
         

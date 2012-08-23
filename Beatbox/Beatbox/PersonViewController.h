@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PersonViewController : UIViewController
+@interface PersonViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 @property(strong, nonatomic) NSString *personID;
 
 @property(strong, nonatomic) IBOutlet UIImageView *avatar;
@@ -16,4 +16,5 @@
 @property(strong, nonatomic) IBOutlet UILabel *followers;
 @property(strong, nonatomic) IBOutlet UILabel *following;
 @property(strong, nonatomic) IBOutlet UITextView *description;
+@property(strong, nonatomic) IBOutlet UITableView *tableView;
 @end

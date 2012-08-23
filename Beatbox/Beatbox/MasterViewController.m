@@ -78,7 +78,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 
-	NSDate *object = [self.menu objectAtIndex:indexPath.row];
+	NSString *object = [self.menu objectAtIndex:indexPath.row];
 	cell.textLabel.text = [object description];
     return cell;
 }

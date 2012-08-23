@@ -10,21 +10,26 @@
 #import "ServerRequest.h"
 #import "ADNConnect.h"
 #import "SBJson.h"
+#import "DetailTableViewCell.h"
 
 @interface PersonViewController ()
 @property(strong, nonatomic) UIActivityIndicatorView *spinner;
 @property(strong, nonatomic) NSDictionary *personData;
 @property(strong, nonatomic) ServerRequest *photoRequest;
+@property (strong, nonatomic) NSArray *posts;
+@property (strong, nonatomic) UIImage *userPicture;
 @end
 
 @implementation PersonViewController
 
-@synthesize personID, personData, spinner, name, avatar, followers, following, description, photoRequest;
+@synthesize personID, personData, spinner, name, avatar, followers, following, description, photoRequest, userPicture;
+@synthesize tableView, posts;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.posts = [NSArray array];
 		self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     }
     return self;
@@ -45,6 +50,7 @@
 	
 	[self.spinner startAnimating];
 	[self retrievePersonData];
+    [self retrievePersonPosts];
 }
 
 - (void)viewDidUnload {
@@ -86,6 +92,36 @@
 	}];    
 }
 
+- (void)retrievePersonPosts {
+ 	// Start loading the posts
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[ADNConnect userPostsUrl:self.personID]]];
+	
+	ServerRequest* serverConnect = [[ServerRequest alloc] init];
+	[serverConnect createConnection:request usingBlock:^(NSData *responseData, NSError *error){
+		if(!responseData || error) {
+			NSLog(@"Error!  No response data");
+			return;
+		}
+		
+		NSString *response = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+		
+		// Checking for errors
+		if(response) {
+			NSLog(@"Response from server: %@", response);
+			
+			// Parse the response
+			SBJsonParser *parser = [[SBJsonParser alloc] init];
+			self.posts = [parser objectWithString:response];
+			
+			if([self.posts count] > 0) {
+				[self.tableView reloadData];
+			}
+		} else {
+			NSLog(@"Error! Response text is nil");
+		}
+	}];    
+}
+
 - (void)loadPersonData {
 	NSDictionary *imageData = [self.personData objectForKey:@"avatar_image"];
 	if(imageData) {
@@ -121,16 +157,65 @@
             return;
         }
         
-        UIImage *picture = [UIImage imageWithData:responseData];
+        self.userPicture = [UIImage imageWithData:responseData];
         
         // Checking for errors
-        if(picture) {
-            [self.avatar setImage:picture];
+        if(self.userPicture) {
+            [self.avatar setImage:self.userPicture];
             [self.view setNeedsDisplay];
         } else {
             NSLog(@"Error! Picture is nil");			
         }
     }]; 
 }
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section. Take out the deleted posts first.
+	self.posts = [self.posts filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.is_deleted != %@", [NSNumber numberWithBool:YES]]];
+    return [self.posts count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return 90.0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"DetailCell";
+    DetailTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[DetailTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+	
+	NSDictionary *postText = [self.posts objectAtIndex:indexPath.row];
+    // If a user picture exists, pass it in
+    if(self.userPicture) {
+        [cell setUserPicture:self.userPicture];
+    }
+    
+	[cell setPostData:postText];
+    
+    return cell;
+}
+
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
+}
+
 
 @end
