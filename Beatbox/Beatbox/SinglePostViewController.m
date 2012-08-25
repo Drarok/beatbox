@@ -8,6 +8,8 @@
 
 #import "SinglePostViewController.h"
 #import "ServerRequest.h"
+#import "ADNConnect.h"
+#import "SBJson.h"
 
 static NSDateFormatter *preDateFormatter = nil;
 static NSDateFormatter *postDateFormatter = nil;
@@ -16,12 +18,13 @@ static NSDateFormatter *postDateFormatter = nil;
 @property(strong, nonatomic) IFTweetLabel *userPost;
 @property(strong, nonatomic) NSTimer *photoTimer;
 @property(strong, nonatomic) ServerRequest *photoRequest;
+@property(strong, nonatomic) NSDictionary *personData;
 @end
 
 @implementation SinglePostViewController
 
-@synthesize postData;
-@synthesize userImage, userName, userPost, postDate, photoTimer, photoRequest, userPicture;
+@synthesize postData, followers, following, description, spinner;
+@synthesize userImage, userName, userPost, postDate, photoTimer, photoRequest, userPicture, personData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -65,6 +68,7 @@ static NSDateFormatter *postDateFormatter = nil;
 - (void)_setupPostData {
 	NSString *created = [postData objectForKey:@"created_at"];
 	NSDictionary *user = [postData objectForKey:@"user"];
+    NSString *userID = [user objectForKey:@"id"];
 	NSDictionary *avatar = [user objectForKey:@"avatar_image"];
 	NSString *avatarUrl = [avatar objectForKey:@"url"];
 	NSString *name = [user objectForKey:@"username"];	
@@ -101,6 +105,55 @@ static NSDateFormatter *postDateFormatter = nil;
         
         // Set a timer to fire in 0.5 seconds -- allows you to scroll a list of people and not have your device constantly pulling down photos
         self.photoTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(_timerFired:) userInfo:nil repeats:NO];
+	}
+    
+    // Try to retrieve more data on this person
+    [self retrievePersonData:userID];
+}
+
+- (void)retrievePersonData:(NSString *)userID {
+ 	// Start loading the posts
+    [self.spinner startAnimating];
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[ADNConnect userUrl:userID]]];
+	
+	ServerRequest* serverConnect = [[ServerRequest alloc] init];
+	[serverConnect createConnection:request usingBlock:^(NSData *responseData, NSError *error) {
+		[self.spinner stopAnimating];
+        [self.spinner removeFromSuperview];
+		
+		if(!responseData || error) {
+			NSLog(@"Error!  No response data");
+			return;
+		}
+		
+		NSString *response = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+		
+		// Checking for errors
+		if(response) {
+			NSLog(@"Response from server: %@", response);
+			
+			// Parse the response
+			SBJsonParser *parser = [[SBJsonParser alloc] init];
+			self.personData = [parser objectWithString:response];
+			[self loadPersonData];
+		} else {
+			NSLog(@"Error! Response text is nil");
+		}
+	}];    
+}
+
+- (void)loadPersonData {
+	NSDictionary *counts = [self.personData objectForKey:@"counts"];
+	if(counts) {
+		NSNumber *followerNum = [counts objectForKey:@"followers"];
+		NSNumber *followingNum = [counts objectForKey:@"following"]; 
+		[self.followers setText:[followerNum stringValue]];
+		[self.following setText:[followingNum stringValue]];		
+	}
+	
+	NSDictionary *bio = [self.personData objectForKey:@"description"];
+	if(bio) {
+		[self.description setText:[bio objectForKey:@"text"]];
 	}
 }
 

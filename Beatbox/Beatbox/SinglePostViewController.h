@@ -16,4 +16,8 @@
 @property(strong, nonatomic) IBOutlet UIImageView *userImage;
 @property(strong, nonatomic) IBOutlet UILabel *userName;
 @property(strong, nonatomic) IBOutlet UILabel *postDate;
+@property(strong, nonatomic) IBOutlet UILabel *followers;
+@property(strong, nonatomic) IBOutlet UILabel *following;
+@property(strong, nonatomic) IBOutlet UITextView *description;
+@property(strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @end
