@@ -14,8 +14,8 @@
 		9403DDC815DCC58D00BC82D7 /* PersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9403DDC615DCC58D00BC82D7 /* PersonViewController.m */; };
 		9403DDC915DCC58D00BC82D7 /* PersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9403DDC715DCC58D00BC82D7 /* PersonViewController.xib */; };
 		9403DDCE15DCD12600BC82D7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9403DDCD15DCD12500BC82D7 /* README.md */; };
-		94B3E61115E985D9001C8E7B /* SingleTweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B3E60F15E985D9001C8E7B /* SingleTweetViewController.m */; };
-		94B3E61215E985D9001C8E7B /* SingleTweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B3E61015E985D9001C8E7B /* SingleTweetViewController.xib */; };
+		94B3E61115E985D9001C8E7B /* SinglePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B3E60F15E985D9001C8E7B /* SinglePostViewController.m */; };
+		94B3E61215E985D9001C8E7B /* SinglePostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B3E61015E985D9001C8E7B /* SinglePostViewController.xib */; };
 		94C3C34215D8DDF500D911EA /* ServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3C34115D8DDF500D911EA /* ServerRequest.m */; };
 		94C3C51315D8E00D00D911EA /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3C34D15D8E00D00D911EA /* NSObject+SBJson.m */; };
 		94C3C51415D8E00D00D911EA /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3C35015D8E00D00D911EA /* SBJsonParser.m */; };
@@ -63,9 +63,9 @@
 		9403DDC715DCC58D00BC82D7 /* PersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonViewController.xib; sourceTree = "<group>"; };
 		9403DDCA15DCD0DE00BC82D7 /* ADNConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNConfig.h; sourceTree = "<group>"; };
 		9403DDCD15DCD12500BC82D7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
-		94B3E60E15E985D8001C8E7B /* SingleTweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleTweetViewController.h; sourceTree = "<group>"; };
-		94B3E60F15E985D9001C8E7B /* SingleTweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleTweetViewController.m; sourceTree = "<group>"; };
-		94B3E61015E985D9001C8E7B /* SingleTweetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleTweetViewController.xib; sourceTree = "<group>"; };
+		94B3E60E15E985D8001C8E7B /* SinglePostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = SinglePostViewController.h; sourceTree = "<group>"; };
+		94B3E60F15E985D9001C8E7B /* SinglePostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinglePostViewController.m; sourceTree = "<group>"; };
+		94B3E61015E985D9001C8E7B /* SinglePostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SinglePostViewController.xib; sourceTree = "<group>"; };
 		94C3C34015D8DDF500D911EA /* ServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerRequest.h; path = Utilities/ServerRequest.h; sourceTree = "<group>"; };
 		94C3C34115D8DDF500D911EA /* ServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerRequest.m; path = Utilities/ServerRequest.m; sourceTree = "<group>"; };
 		94C3C34C15D8E00D00D911EA /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
@@ -306,9 +306,9 @@
 				9403DDC515DCC58C00BC82D7 /* PersonViewController.h */,
 				9403DDC615DCC58D00BC82D7 /* PersonViewController.m */,
 				9403DDC715DCC58D00BC82D7 /* PersonViewController.xib */,
-				94B3E60E15E985D8001C8E7B /* SingleTweetViewController.h */,
-				94B3E60F15E985D9001C8E7B /* SingleTweetViewController.m */,
-				94B3E61015E985D9001C8E7B /* SingleTweetViewController.xib */,
+				94B3E60E15E985D8001C8E7B /* SinglePostViewController.h */,
+				94B3E60F15E985D9001C8E7B /* SinglePostViewController.m */,
+				94B3E61015E985D9001C8E7B /* SinglePostViewController.xib */,
 				9403DDCD15DCD12500BC82D7 /* README.md */,
 				94C3C68315DA159000D911EA /* Resources */,
 				94C3C34715D8DFD500D911EA /* External */,
@@ -387,7 +387,7 @@
 				94C3C68715DA15C900D911EA /* arrow.png in Resources */,
 				9403DDC915DCC58D00BC82D7 /* PersonViewController.xib in Resources */,
 				9403DDCE15DCD12600BC82D7 /* README.md in Resources */,
-				94B3E61215E985D9001C8E7B /* SingleTweetViewController.xib in Resources */,
+				94B3E61215E985D9001C8E7B /* SinglePostViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,7 +424,7 @@
 				9403DDBE15DB7C0400BC82D7 /* RKLMatchEnumerator.m in Sources */,
 				9403DDC815DCC58D00BC82D7 /* PersonViewController.m in Sources */,
 				94E226CB15E5E34F0097A908 /* UIWebViewController.m in Sources */,
-				94B3E61115E985D9001C8E7B /* SingleTweetViewController.m in Sources */,
+				94B3E61115E985D9001C8E7B /* SinglePostViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

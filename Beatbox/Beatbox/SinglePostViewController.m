@@ -6,19 +6,19 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "SingleTweetViewController.h"
+#import "SinglePostViewController.h"
 #import "ServerRequest.h"
 
 static NSDateFormatter *preDateFormatter = nil;
 static NSDateFormatter *postDateFormatter = nil;
 
-@interface SingleTweetViewController ()
+@interface SinglePostViewController ()
 @property(strong, nonatomic) IFTweetLabel *userPost;
 @property(strong, nonatomic) NSTimer *photoTimer;
 @property(strong, nonatomic) ServerRequest *photoRequest;
 @end
 
-@implementation SingleTweetViewController
+@implementation SinglePostViewController
 
 @synthesize postData;
 @synthesize userImage, userName, userPost, postDate, photoTimer, photoRequest, userPicture;
@@ -54,7 +54,7 @@ static NSDateFormatter *postDateFormatter = nil;
     [self.view addSubview:self.userPost];
     
     if(self.postData) {
-        [self _setupTweetData];
+        [self _setupPostData];
     }
 }
 
@@ -62,7 +62,7 @@ static NSDateFormatter *postDateFormatter = nil;
 	return YES;
 }
 
-- (void)_setupTweetData {
+- (void)_setupPostData {
 	NSString *created = [postData objectForKey:@"created_at"];
 	NSDictionary *user = [postData objectForKey:@"user"];
 	NSDictionary *avatar = [user objectForKey:@"avatar_image"];

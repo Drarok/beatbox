@@ -14,7 +14,7 @@
 #import "IFTweetLabel.h"
 #import "PersonViewController.h"
 #import "UIWebViewController.h"
-#import "SingleTweetViewController.h"
+#import "SinglePostViewController.h"
 
 @interface DetailTableViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -123,9 +123,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *postText = [self.posts objectAtIndex:indexPath.row];
     
-    SingleTweetViewController *tweet = [[SingleTweetViewController alloc] initWithNibName:nil bundle:nil];
-    [tweet setPostData:postText];
-    [self.navigationController pushViewController:tweet animated:YES];	
+    SinglePostViewController *post = [[SinglePostViewController alloc] initWithNibName:nil bundle:nil];
+    [post setPostData:postText];
+    [self.navigationController pushViewController:post animated:YES];	
 }
 
 - (void)refresh {

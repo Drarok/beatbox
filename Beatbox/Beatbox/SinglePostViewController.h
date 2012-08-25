@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "IFTweetLabel.h"
 
-@interface SingleTweetViewController : UIViewController
+@interface SinglePostViewController : UIViewController
 @property(strong, nonatomic) NSDictionary *postData;
 @property(nonatomic, strong) UIImage *userPicture;
 
