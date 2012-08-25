@@ -14,6 +14,7 @@
 #import "IFTweetLabel.h"
 #import "PersonViewController.h"
 #import "UIWebViewController.h"
+#import "SingleTweetViewController.h"
 
 @interface DetailTableViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -61,10 +62,6 @@
 	[self startLoading];
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
-}
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	if([keyPath isEqualToString:@"accessToken"]) {
 		self.urlToLoad = [ADNConnect postsUrl];
@@ -79,7 +76,7 @@
 #pragma mark - Split view
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController {
-    barButtonItem.title = NSLocalizedString(@"Master", @"Master");
+    barButtonItem.title = NSLocalizedString(@"Menu", @"Menu");
     [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
     self.masterPopoverController = popoverController;
 }
@@ -124,16 +121,19 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    NSDictionary *postText = [self.posts objectAtIndex:indexPath.row];
+    
+    SingleTweetViewController *tweet = [[SingleTweetViewController alloc] initWithNibName:nil bundle:nil];
+    [tweet setPostData:postText];
+    [self.navigationController pushViewController:tweet animated:YES];	
 }
 
 - (void)refresh {
+    // Close the popover, if open
+    if(self.masterPopoverController) {
+        [self.masterPopoverController dismissPopoverAnimated:YES];
+    }
+    
  	// Start loading the posts
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.urlToLoad]];
 	
