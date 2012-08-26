@@ -15,6 +15,7 @@
 		9403DDC915DCC58D00BC82D7 /* PersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9403DDC715DCC58D00BC82D7 /* PersonViewController.xib */; };
 		9403DDCE15DCD12600BC82D7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9403DDCD15DCD12500BC82D7 /* README.md */; };
 		94AAC80815E9925F006B9D35 /* PersonPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AAC80615E9925F006B9D35 /* PersonPostsViewController.m */; };
+		94AAC81015E9B101006B9D35 /* PersonFollowersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AAC80E15E9B101006B9D35 /* PersonFollowersViewController.m */; };
 		94B3E61115E985D9001C8E7B /* SinglePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B3E60F15E985D9001C8E7B /* SinglePostViewController.m */; };
 		94C3C34215D8DDF500D911EA /* ServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3C34115D8DDF500D911EA /* ServerRequest.m */; };
 		94C3C51315D8E00D00D911EA /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3C34D15D8E00D00D911EA /* NSObject+SBJson.m */; };
@@ -65,6 +66,8 @@
 		9403DDCD15DCD12500BC82D7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		94AAC80515E9925F006B9D35 /* PersonPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonPostsViewController.h; sourceTree = "<group>"; };
 		94AAC80615E9925F006B9D35 /* PersonPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonPostsViewController.m; sourceTree = "<group>"; };
+		94AAC80D15E9B101006B9D35 /* PersonFollowersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonFollowersViewController.h; sourceTree = "<group>"; };
+		94AAC80E15E9B101006B9D35 /* PersonFollowersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonFollowersViewController.m; sourceTree = "<group>"; };
 		94B3E60E15E985D8001C8E7B /* SinglePostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinglePostViewController.h; sourceTree = "<group>"; };
 		94B3E60F15E985D9001C8E7B /* SinglePostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinglePostViewController.m; sourceTree = "<group>"; };
 		94C3C34015D8DDF500D911EA /* ServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerRequest.h; path = Utilities/ServerRequest.h; sourceTree = "<group>"; };
@@ -174,6 +177,8 @@
 				9403DDC715DCC58D00BC82D7 /* PersonViewController.xib */,
 				94AAC80515E9925F006B9D35 /* PersonPostsViewController.h */,
 				94AAC80615E9925F006B9D35 /* PersonPostsViewController.m */,
+				94AAC80D15E9B101006B9D35 /* PersonFollowersViewController.h */,
+				94AAC80E15E9B101006B9D35 /* PersonFollowersViewController.m */,
 			);
 			name = PersonView;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				9403DDCF15DCD13B00BC82D7 /* ADN */,
+				9403DDCD15DCD12500BC82D7 /* README.md */,
 				94D453B715D844200060D8EB /* AppDelegate.h */,
 				94D453B815D844200060D8EB /* AppDelegate.m */,
 				94D453BA15D844200060D8EB /* MainStoryboard.storyboard */,
@@ -327,7 +333,6 @@
 				94C3C65E15D8E16900D911EA /* DetailTableViewCell.m */,
 				94AAC80B15E9AAC7006B9D35 /* PersonView */,
 				94AAC80C15E9AFD2006B9D35 /* PostView */,
-				9403DDCD15DCD12500BC82D7 /* README.md */,
 				94C3C68315DA159000D911EA /* Resources */,
 				94C3C34715D8DFD500D911EA /* External */,
 				94C3C33E15D8DDD600D911EA /* Utilities */,
@@ -443,6 +448,7 @@
 				94E226CB15E5E34F0097A908 /* UIWebViewController.m in Sources */,
 				94B3E61115E985D9001C8E7B /* SinglePostViewController.m in Sources */,
 				94AAC80815E9925F006B9D35 /* PersonPostsViewController.m in Sources */,
+				94AAC81015E9B101006B9D35 /* PersonFollowersViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
