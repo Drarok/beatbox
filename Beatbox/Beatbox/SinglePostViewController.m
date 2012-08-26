@@ -16,40 +16,31 @@ static NSDateFormatter *postDateFormatter = nil;
 
 @interface SinglePostViewController ()
 @property(strong, nonatomic) IFTweetLabel *userPost;
-@property(strong, nonatomic) NSTimer *photoTimer;
-@property(strong, nonatomic) ServerRequest *photoRequest;
-@property(strong, nonatomic) NSDictionary *personData;
+@property(strong, nonatomic) UILabel *postDate;
 @end
 
 @implementation SinglePostViewController
 
-@synthesize postData, followers, following, description, spinner;
-@synthesize userImage, userName, userPost, postDate, photoTimer, photoRequest, userPicture, personData;
+@synthesize postData = postData_, userPost, postDate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.userPost = [[IFTweetLabel alloc] initWithFrame:CGRectZero];
+        self.postDate = [[UILabel alloc] initWithFrame:CGRectZero];
+        [self.postDate setFont:[UIFont systemFontOfSize:14.0]];
     }
     return self;
-}
-
-- (void)dealloc {
-    if(self.photoTimer) {
-        [self.photoTimer invalidate];
-    }
-    self.photoTimer = nil;
-    
-    if(self.photoRequest) {
-        [self.photoRequest cancelRequest];
-    }
-    self.photoRequest = nil;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    NSInteger startY = self.postDate.frame.origin.y+self.postDate.frame.size.height;
+    NSInteger startY = self.avatar.frame.origin.y + self.avatar.frame.size.height + 10;
+    [self.postDate setFrame:CGRectMake(20, startY, self.view.frame.size.width - 40, 20)];
+    [self.view addSubview:self.postDate];
+    
+    startY = self.postDate.frame.origin.y + self.postDate.frame.size.height;
     [self.userPost setFrame:CGRectMake(20, startY, self.view.frame.size.width - 40, 90)];
     [self.userPost setBackgroundColor:[UIColor clearColor]];
     [self.userPost setNumberOfLines:0];
@@ -65,14 +56,18 @@ static NSDateFormatter *postDateFormatter = nil;
 	return YES;
 }
 
-- (void)_setupPostData {
-	NSString *created = [postData objectForKey:@"created_at"];
-	NSDictionary *user = [postData objectForKey:@"user"];
+- (void)setPostData:(NSDictionary *)postData {
+    postData_ = postData;
+    
+    // Grab the userID and set it in the post
+    NSDictionary *user = [postData objectForKey:@"user"];
     NSString *userID = [user objectForKey:@"id"];
-	NSDictionary *avatar = [user objectForKey:@"avatar_image"];
-	NSString *avatarUrl = [avatar objectForKey:@"url"];
-	NSString *name = [user objectForKey:@"username"];	
-	NSString *text = [postData objectForKey:@"text"];
+    [self setPersonID:userID];
+}
+
+- (void)_setupPostData {
+	NSString *created = [self.postData objectForKey:@"created_at"];
+	NSString *text = [self.postData objectForKey:@"text"];
 	
 	if(!preDateFormatter) {
 		preDateFormatter = [[NSDateFormatter alloc] init];
@@ -89,99 +84,9 @@ static NSDateFormatter *postDateFormatter = nil;
 	}
 	[self.postDate setText:[postDateFormatter stringFromDate:date]];
 	
-	if(name) {
-		[self.userName setText:name];
-	}
-	
 	if(text) {
 		[self.userPost setText:text];
 	}
-	
-    if(self.userPicture) {
-        [self.userImage setImage:self.userPicture];
-    } else if(avatarUrl) {
-		// Set the default avatar first
-		[self.userImage setImage:[UIImage imageNamed:@"default_avatar"]];
-        
-        // Set a timer to fire in 0.5 seconds -- allows you to scroll a list of people and not have your device constantly pulling down photos
-        self.photoTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(_timerFired:) userInfo:nil repeats:NO];
-	}
-    
-    // Try to retrieve more data on this person
-    [self retrievePersonData:userID];
 }
-
-- (void)retrievePersonData:(NSString *)userID {
- 	// Start loading the posts
-    [self.spinner startAnimating];
-	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[ADNConnect userUrl:userID]]];
-	
-	ServerRequest* serverConnect = [[ServerRequest alloc] init];
-	[serverConnect createConnection:request usingBlock:^(NSData *responseData, NSError *error) {
-		[self.spinner stopAnimating];
-        [self.spinner removeFromSuperview];
-		
-		if(!responseData || error) {
-			NSLog(@"Error!  No response data");
-			return;
-		}
-		
-		NSString *response = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-		
-		// Checking for errors
-		if(response) {
-			NSLog(@"Response from server: %@", response);
-			
-			// Parse the response
-			SBJsonParser *parser = [[SBJsonParser alloc] init];
-			self.personData = [parser objectWithString:response];
-			[self loadPersonData];
-		} else {
-			NSLog(@"Error! Response text is nil");
-		}
-	}];    
-}
-
-- (void)loadPersonData {
-	NSDictionary *counts = [self.personData objectForKey:@"counts"];
-	if(counts) {
-		NSNumber *followerNum = [counts objectForKey:@"followers"];
-		NSNumber *followingNum = [counts objectForKey:@"following"]; 
-		[self.followers setText:[followerNum stringValue]];
-		[self.following setText:[followingNum stringValue]];		
-	}
-	
-	NSDictionary *bio = [self.personData objectForKey:@"description"];
-	if(bio) {
-		[self.description setText:[bio objectForKey:@"text"]];
-	}
-}
-
-- (void)_timerFired:(NSTimer *)timer {
-    // Try to pull down the profile photo
-	NSDictionary *user = [self.postData objectForKey:@"user"];
-	NSDictionary *avatar = [user objectForKey:@"avatar_image"];
-	NSString *avatarUrl = [avatar objectForKey:@"url"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:avatarUrl]];
-	
-    self.photoRequest = [[ServerRequest alloc] init];
-    [self.photoRequest createConnection:request usingBlock:^(NSData *responseData, NSError *error){
-        if(!responseData || error) {
-            NSLog(@"Error!  No response data");
-            return;
-        }
-        
-        UIImage *picture = [UIImage imageWithData:responseData];
-        
-        // Checking for errors
-        if(picture) {
-            [self.userImage setImage:picture];
-            //[self.view setNeedsDisplay];
-        } else {
-            NSLog(@"Error! Picture is nil");			
-        }
-    }]; 
-}
-
 
 @end

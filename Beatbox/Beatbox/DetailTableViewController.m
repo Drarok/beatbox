@@ -12,7 +12,7 @@
 #import "SBJson.h"
 #import "DetailTableViewCell.h"
 #import "IFTweetLabel.h"
-#import "PersonViewController.h"
+#import "PersonPostsViewController.h"
 #import "UIWebViewController.h"
 #import "SinglePostViewController.h"
 
@@ -123,7 +123,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *postText = [self.posts objectAtIndex:indexPath.row];
     
-    SinglePostViewController *post = [[SinglePostViewController alloc] initWithNibName:nil bundle:nil];
+    SinglePostViewController *post = [[SinglePostViewController alloc] initWithNibName:@"PersonViewController" bundle:nil];
     [post setPostData:postText];
     [self.navigationController pushViewController:post animated:YES];	
 }
@@ -176,7 +176,7 @@
 		
 		NSString *personID = [self findUserIDFromMatch:[match substringFromIndex:1]];
 		if(personID) {
-			PersonViewController *person = [[PersonViewController alloc] initWithNibName:nil bundle:nil];
+			PersonPostsViewController *person = [[PersonPostsViewController alloc] initWithNibName:@"PersonViewController" bundle:nil];
 			[person setTitle:match];
 			[person setPersonID:personID];
 			[self.navigationController pushViewController:person animated:YES];	

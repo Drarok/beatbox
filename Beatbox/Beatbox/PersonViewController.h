@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PersonViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface PersonViewController : UIViewController
 @property(strong, nonatomic) NSString *personID;
+@property (strong, nonatomic) UIImage *userPicture;
 
 @property(strong, nonatomic) IBOutlet UIImageView *avatar;
 @property(strong, nonatomic) IBOutlet UILabel *name;
 @property(strong, nonatomic) IBOutlet UILabel *followers;
 @property(strong, nonatomic) IBOutlet UILabel *following;
 @property(strong, nonatomic) IBOutlet UITextView *description;
-@property(strong, nonatomic) IBOutlet UITableView *tableView;
 @end

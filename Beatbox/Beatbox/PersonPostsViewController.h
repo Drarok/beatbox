@@ -1,5 +1,5 @@
 //
-//  SingleTweetViewController.h
+//  PersonPostsViewController.h
 //  Beatbox
 //
 //  Created by Ryan on 8/25/12.
@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "IFTweetLabel.h"
 #import "PersonViewController.h"
 
-@interface SinglePostViewController : PersonViewController
-@property(strong, nonatomic) NSDictionary *postData;
+@interface PersonPostsViewController : PersonViewController<UITableViewDelegate, UITableViewDataSource>
+
 @end
