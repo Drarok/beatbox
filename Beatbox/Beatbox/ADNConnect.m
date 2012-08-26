@@ -49,4 +49,14 @@ const NSString *adnUrl = @"https://alpha-api.app.net";
 	return [NSString stringWithFormat:@"%@/stream/0/posts/tag/%@?access_token=%@", adnUrl, tag, accessToken];    
 }
 
++(NSString *)userFollowersUrl:(NSString *)userID {
+	NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
+	return [NSString stringWithFormat:@"%@/stream/0/users/%@/followers?access_token=%@", adnUrl, userID, accessToken];    
+}
+
++(NSString *)userFollowingUrl:(NSString *)userID {
+	NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
+	return [NSString stringWithFormat:@"%@/stream/0/users/%@/following?access_token=%@", adnUrl, userID, accessToken];    
+}
+
 @end

@@ -62,7 +62,10 @@ static NSDateFormatter *postDateFormatter = nil;
     // Grab the userID and set it in the post
     NSDictionary *user = [postData objectForKey:@"user"];
     NSString *userID = [user objectForKey:@"id"];
+    NSString *name = [user objectForKey:@"name"];
+    
     [self setPersonID:userID];
+    [self setTitle:name];
 }
 
 - (void)_setupPostData {

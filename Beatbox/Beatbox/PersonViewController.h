@@ -14,7 +14,11 @@
 
 @property(strong, nonatomic) IBOutlet UIImageView *avatar;
 @property(strong, nonatomic) IBOutlet UILabel *name;
-@property(strong, nonatomic) IBOutlet UILabel *followers;
-@property(strong, nonatomic) IBOutlet UILabel *following;
+@property(strong, nonatomic) IBOutlet UIButton *followers;
+@property(strong, nonatomic) IBOutlet UIButton *following;
 @property(strong, nonatomic) IBOutlet UITextView *description;
+
+- (IBAction)clickedFollowersBtn:(id)sender;
+- (IBAction)clickedFollowingBtn:(id)sender;
+
 @end

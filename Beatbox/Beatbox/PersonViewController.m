@@ -11,6 +11,7 @@
 #import "ADNConnect.h"
 #import "SBJson.h"
 #import "DetailTableViewCell.h"
+#import "PersonFollowersViewController.h"
 
 @interface PersonViewController ()
 @property(strong, nonatomic) UIActivityIndicatorView *spinner;
@@ -100,8 +101,8 @@
 	if(counts) {
 		NSNumber *followerNum = [counts objectForKey:@"followers"];
 		NSNumber *followingNum = [counts objectForKey:@"following"]; 
-		[self.followers setText:[followerNum stringValue]];
-		[self.following setText:[followingNum stringValue]];		
+		[self.followers setTitle:[followerNum stringValue] forState:UIControlStateNormal];
+		[self.following setTitle:[followingNum stringValue] forState:UIControlStateNormal];		
 	}
 	
 	NSDictionary *bio = [self.personData objectForKey:@"description"];
@@ -132,6 +133,21 @@
             NSLog(@"Error! Picture is nil");			
         }
     }]; 
+}
+
+#pragma mark - Button Click Events
+
+- (IBAction)clickedFollowersBtn:(id)sender {
+    PersonFollowersViewController *followersView = [[PersonFollowersViewController alloc] initWithNibName:@"PersonViewController" bundle:nil];
+    [followersView setPersonID:self.personID];
+    [self.navigationController pushViewController:followersView animated:YES];
+}
+
+- (IBAction)clickedFollowingBtn:(id)sender {
+    PersonFollowersViewController *followersView = [[PersonFollowersViewController alloc] initWithNibName:@"PersonViewController" bundle:nil];
+    [followersView setPersonID:self.personID];
+    [followersView setShowFollowing:YES];
+    [self.navigationController pushViewController:followersView animated:YES];    
 }
 
 @end
