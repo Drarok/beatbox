@@ -36,6 +36,10 @@
     [super viewDidLoad];
     [self retrievePersonPosts];
     
+	// Configure table
+	[self.tableView setSeparatorColor:[UIColor blackColor]];
+	[self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hexabump.png"]]];
+	
     NSInteger startY = self.avatar.frame.origin.y + self.avatar.frame.size.height + 10;
     [self.tableView setFrame:CGRectMake(20, startY, self.view.frame.size.width - 40, self.view.frame.size.height - startY)];
     [self.view addSubview:tableView];
