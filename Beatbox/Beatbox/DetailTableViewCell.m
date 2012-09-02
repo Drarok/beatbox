@@ -37,17 +37,24 @@ static NSDateFormatter *postDateFormatter = nil;
 		
 		self.userName = [[UILabel alloc] initWithFrame:CGRectMake(1, 1, 50, 50)];
 		[self.userName setBackgroundColor:[UIColor clearColor]];
+		[self.userName setTextColor:[UIColor whiteColor]];
 		[self.contentView addSubview:self.userName];
 		
 		self.userPost = [[IFTweetLabel alloc] initWithFrame:CGRectMake(1, 1, 50, 50)];
 		[self.userPost setBackgroundColor:[UIColor clearColor]];
 		[self.userPost setNumberOfLines:0];
 		[self.userPost setLinksEnabled:YES];
+		[self.userPost setTextColor:[UIColor whiteColor]];
+		[self.userPost setNormalColor:[UIColor whiteColor]];
+		[self.userPost setHighlightColor:[UIColor whiteColor]];
+		[self.userPost setNormalImage:[[UIImage imageNamed:@"blueButton"] resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)]];
+		[self.userPost setHighlightImage:[[UIImage imageNamed:@"blueButtonHighlight"] resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)]];
 		[self.contentView addSubview:self.userPost];
 		
 		self.postDate = [[UILabel alloc] initWithFrame:CGRectMake(1, 1, 50, 50)];
 		[self.postDate setFont:[UIFont systemFontOfSize:12.0]];
 		[self.postDate setBackgroundColor:[UIColor clearColor]];
+		[self.postDate setTextColor:[UIColor whiteColor]];		
 		[self.contentView addSubview:self.postDate];
     }
     return self;

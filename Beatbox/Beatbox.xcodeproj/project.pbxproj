@@ -14,6 +14,13 @@
 		9403DDC815DCC58D00BC82D7 /* PersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9403DDC615DCC58D00BC82D7 /* PersonViewController.m */; };
 		9403DDC915DCC58D00BC82D7 /* PersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9403DDC715DCC58D00BC82D7 /* PersonViewController.xib */; };
 		9403DDCE15DCD12600BC82D7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9403DDCD15DCD12500BC82D7 /* README.md */; };
+		94969AE915F3385A00539F39 /* Wood-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 94969AE815F3385A00539F39 /* Wood-6.png */; };
+		94969AF315F33AFF00539F39 /* Paper-22.png in Resources */ = {isa = PBXBuildFile; fileRef = 94969AF015F33AFF00539F39 /* Paper-22.png */; };
+		94969AF515F33C8200539F39 /* hexabump.png in Resources */ = {isa = PBXBuildFile; fileRef = 94969AF415F33C8200539F39 /* hexabump.png */; };
+		94969B0215F33EF200539F39 /* blueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 94969AFE15F33EF200539F39 /* blueButton.png */; };
+		94969B0315F33EF200539F39 /* blueButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94969AFF15F33EF200539F39 /* blueButton@2x.png */; };
+		94969B0415F33EF200539F39 /* blueButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 94969B0015F33EF200539F39 /* blueButtonHighlight.png */; };
+		94969B0515F33EF200539F39 /* blueButtonHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94969B0115F33EF200539F39 /* blueButtonHighlight@2x.png */; };
 		94AAC80815E9925F006B9D35 /* PersonPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AAC80615E9925F006B9D35 /* PersonPostsViewController.m */; };
 		94AAC81015E9B101006B9D35 /* PersonFollowersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AAC80E15E9B101006B9D35 /* PersonFollowersViewController.m */; };
 		94B3E61115E985D9001C8E7B /* SinglePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B3E60F15E985D9001C8E7B /* SinglePostViewController.m */; };
@@ -64,6 +71,13 @@
 		9403DDC715DCC58D00BC82D7 /* PersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonViewController.xib; sourceTree = "<group>"; };
 		9403DDCA15DCD0DE00BC82D7 /* ADNConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNConfig.h; sourceTree = "<group>"; };
 		9403DDCD15DCD12500BC82D7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		94969AE815F3385A00539F39 /* Wood-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Wood-6.png"; path = "Resources/Wood-6.png"; sourceTree = "<group>"; };
+		94969AF015F33AFF00539F39 /* Paper-22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Paper-22.png"; path = "Resources/Paper-22.png"; sourceTree = "<group>"; };
+		94969AF415F33C8200539F39 /* hexabump.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hexabump.png; path = Resources/hexabump.png; sourceTree = "<group>"; };
+		94969AFE15F33EF200539F39 /* blueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blueButton.png; path = Resources/blueButton.png; sourceTree = "<group>"; };
+		94969AFF15F33EF200539F39 /* blueButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blueButton@2x.png"; path = "Resources/blueButton@2x.png"; sourceTree = "<group>"; };
+		94969B0015F33EF200539F39 /* blueButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blueButtonHighlight.png; path = Resources/blueButtonHighlight.png; sourceTree = "<group>"; };
+		94969B0115F33EF200539F39 /* blueButtonHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blueButtonHighlight@2x.png"; path = "Resources/blueButtonHighlight@2x.png"; sourceTree = "<group>"; };
 		94AAC80515E9925F006B9D35 /* PersonPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonPostsViewController.h; sourceTree = "<group>"; };
 		94AAC80615E9925F006B9D35 /* PersonPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonPostsViewController.m; sourceTree = "<group>"; };
 		94AAC80D15E9B101006B9D35 /* PersonFollowersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonFollowersViewController.h; sourceTree = "<group>"; };
@@ -280,6 +294,13 @@
 		94C3C68315DA159000D911EA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				94969AFE15F33EF200539F39 /* blueButton.png */,
+				94969AFF15F33EF200539F39 /* blueButton@2x.png */,
+				94969B0015F33EF200539F39 /* blueButtonHighlight.png */,
+				94969B0115F33EF200539F39 /* blueButtonHighlight@2x.png */,
+				94969AF415F33C8200539F39 /* hexabump.png */,
+				94969AF015F33AFF00539F39 /* Paper-22.png */,
+				94969AE815F3385A00539F39 /* Wood-6.png */,
 				94C3C68615DA15C900D911EA /* arrow.png */,
 			);
 			name = Resources;
@@ -410,6 +431,13 @@
 				94C3C68715DA15C900D911EA /* arrow.png in Resources */,
 				9403DDC915DCC58D00BC82D7 /* PersonViewController.xib in Resources */,
 				9403DDCE15DCD12600BC82D7 /* README.md in Resources */,
+				94969AE915F3385A00539F39 /* Wood-6.png in Resources */,
+				94969AF315F33AFF00539F39 /* Paper-22.png in Resources */,
+				94969AF515F33C8200539F39 /* hexabump.png in Resources */,
+				94969B0215F33EF200539F39 /* blueButton.png in Resources */,
+				94969B0315F33EF200539F39 /* blueButton@2x.png in Resources */,
+				94969B0415F33EF200539F39 /* blueButtonHighlight.png in Resources */,
+				94969B0515F33EF200539F39 /* blueButtonHighlight@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -35,9 +35,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewPost:)];
-	self.navigationItem.rightBarButtonItem = addButton;
 	self.detailViewController = (DetailTableViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+	
+	// Configure table
+	[self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+	[self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Wood-6.png"]]];
 	
 	// Check to see if the user needs to login
 	[self _performLoginIfRequired];
@@ -61,10 +63,6 @@
 	}
 }
 
-- (void)addNewPost:(id)sender {
-
-}
-
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -76,10 +74,16 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-
+	static NSString *CellIdentifier = @"MasterCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+	
 	NSString *object = [self.menu objectAtIndex:indexPath.row];
 	cell.textLabel.text = [object description];
+	[[cell textLabel] setBackgroundColor:[UIColor clearColor]];
+	[[cell textLabel] setTextColor:[UIColor whiteColor]];
     return cell;
 }
 

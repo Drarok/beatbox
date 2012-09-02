@@ -59,6 +59,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewPost:)];
+	self.navigationItem.rightBarButtonItem = addButton;
+	
+	// Configure table
+	[self.tableView setSeparatorColor:[UIColor blackColor]];
+	[self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hexabump.png"]]];
+	
 	[self startLoading];
 }
 
@@ -71,6 +78,10 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	return YES;
+}
+
+- (void)addNewPost:(id)sender {
+	
 }
 
 #pragma mark - Split view
